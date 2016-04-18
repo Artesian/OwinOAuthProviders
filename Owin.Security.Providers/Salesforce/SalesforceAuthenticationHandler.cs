@@ -193,7 +193,7 @@ namespace Owin.Security.Providers.Salesforce
                     Options.ClientId,
                     HttpUtility.UrlEncode(redirectUri),
                     "page",
-                    Options.Immediate(),
+                    Options.Immediate == null ? false : Options.Immediate(),
                     Uri.EscapeDataString(state),
                     ""
                     );
