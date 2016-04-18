@@ -114,6 +114,13 @@ namespace Owin.Security.Providers.Salesforce
         /// </summary>
         public ISecureDataFormat<AuthenticationProperties> StateDataFormat { get; set; }
 
+	      /// <summary>
+	      /// Determines whether the user should be prompted for login and approval
+	      /// If set to true, and if the user is currently logged in and has previously approved the client_id, Salesforce skips the approval step. 
+	      /// If set to true and the user is not logged in or has not previously approved the client, Salesforce immediately terminates with the immediate_unsuccessful error code.
+	      /// </summary>
+	      public Func<bool> Immediate { get; set; }
+
         /// <summary>
         ///     Initializes a new <see cref="SalesforceAuthenticationOptions" />
         /// </summary>

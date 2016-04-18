@@ -72,7 +72,7 @@ namespace Owin.Security.Providers.Salesforce
                         new KeyValuePair<string, string>("client_id", Options.ClientId),
                         new KeyValuePair<string, string>("client_secret", Options.ClientSecret),
                         new KeyValuePair<string, string>("grant_type", "authorization_code")
-                    };
+										};
 
                 // Request the token
                 var requestMessage = new HttpRequestMessage(HttpMethod.Post, Options.Endpoints.TokenEndpoint);
@@ -193,7 +193,7 @@ namespace Owin.Security.Providers.Salesforce
                     Options.ClientId,
                     HttpUtility.UrlEncode(redirectUri),
                     "page",
-                    false,
+                    Options.Immediate(),
                     Uri.EscapeDataString(state),
                     ""
                     );
