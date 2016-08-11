@@ -75,7 +75,7 @@ namespace Owin.Security.Providers.Salesforce
 										};
 
                 // Request the token
-                var requestMessage = new HttpRequestMessage(HttpMethod.Post, Options.Endpoints.TokenEndpoint);
+                var requestMessage = new HttpRequestMessage(HttpMethod.Post, Options.Endpoints().TokenEndpoint);
                 requestMessage.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 requestMessage.Content = new FormUrlEncodedContent(body);
                 HttpResponseMessage tokenResponse = await httpClient.SendAsync(requestMessage);
@@ -188,7 +188,7 @@ namespace Owin.Security.Providers.Salesforce
 
                 string authorizationEndpoint = string.Format(
                     "{0}?response_type={1}&client_id={2}&redirect_uri={3}&display={4}&immediate={5}&state={6}&scope={7}",
-                    Options.Endpoints.AuthorizationEndpoint,
+                    Options.Endpoints().AuthorizationEndpoint,
                     "code",
                     Options.ClientId,
                     HttpUtility.UrlEncode(redirectUri),

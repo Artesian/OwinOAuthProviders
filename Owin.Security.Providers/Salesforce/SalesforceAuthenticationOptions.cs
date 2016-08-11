@@ -82,7 +82,7 @@ namespace Owin.Security.Providers.Salesforce
         /// Gets the sets of OAuth endpoints used to authenticate against Salesforce.  Overriding these endpoints allows you to use Salesforce Enterprise for
         /// authentication.
         /// </summary>
-        public SalesforceAuthenticationEndpoints Endpoints { get; set; }
+        public Func<SalesforceAuthenticationEndpoints> Endpoints { get; set; }
 
         /// <summary>
         ///     Gets or sets the <see cref="ISalesforceAuthenticationProvider" /> used in the authentication events
@@ -132,7 +132,7 @@ namespace Owin.Security.Providers.Salesforce
             AuthenticationMode = AuthenticationMode.Passive;
             Scope = new List<string>();
             BackchannelTimeout = TimeSpan.FromSeconds(60);
-            Endpoints = new SalesforceAuthenticationEndpoints
+            Endpoints = () => new SalesforceAuthenticationEndpoints
             {
                 AuthorizationEndpoint = AuthorizationEndPoint,
                 TokenEndpoint = TokenEndpoint
