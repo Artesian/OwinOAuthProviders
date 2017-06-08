@@ -50,6 +50,8 @@ namespace Owin.Security.Providers.Salesforce
             };
             httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Microsoft Owin Salesforce middleware");
             httpClient.DefaultRequestHeaders.ExpectContinue = false;
+            
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
 
         /// <summary>
