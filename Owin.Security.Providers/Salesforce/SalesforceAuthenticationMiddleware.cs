@@ -8,6 +8,7 @@ using Microsoft.Owin.Security.DataHandler;
 using Microsoft.Owin.Security.DataProtection;
 using Microsoft.Owin.Security.Infrastructure;
 using Owin.Security.Providers.Properties;
+using System.Net;
 
 namespace Owin.Security.Providers.Salesforce
 {
